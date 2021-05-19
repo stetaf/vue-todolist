@@ -22,7 +22,7 @@
             <div class="tasksList">
                 <ul>
                     <li v-for="(task, index) in tasks">
-                        <span>{{ task }}</span>
+                        <span class="taskText" contenteditable="true" :id="index" :html="content" @input="updateTask($event, index)" >{{task}}</span>
                         <i class="fas fa-times-circle" @click="removeTask(index)"></i>
                     </li>
                     <li v-if="(tasks.length === 0) ? noTask = 'display:block' : noTask = 'display: none'">

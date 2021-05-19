@@ -8,7 +8,8 @@ const app = new Vue ({
             'Learn VUE'
         ],
         inputTask: '',
-        noTask: ''
+        noTask: '',
+        content: ''
     },
     methods: {
         addTask() {
@@ -17,6 +18,13 @@ const app = new Vue ({
         },
         removeTask(index) {
             this.tasks.splice(index, 1);
+        },
+        updateTask(e, index) {
+            this.content = e.target.innerText;
+            this.tasks[index] = this.content;
         }
-    } 
+    },
+    mounted: function() {
+
+    }
 });
