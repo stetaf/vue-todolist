@@ -19,6 +19,11 @@
                 <input type="text" v-model="inputTask">
                 <button @click="addTask">Add Task</button>
             </div>
+            <div class="tasksList">
+                <ul>
+                    <li v-for="(task, index) in tasks">{{ task }}</li>
+                </ul>
+            </div>
         </div>
     </div>
 
