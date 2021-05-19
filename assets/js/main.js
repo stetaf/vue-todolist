@@ -7,6 +7,7 @@ const app = new Vue ({
             'Learn JS',
             'Learn VUE'
         ],
+        completedTasks: [],
         inputTask: '',
         noTask: '',
         content: ''
@@ -22,6 +23,10 @@ const app = new Vue ({
         updateTask(e, index) {
             this.content = e.target.innerText;
             this.tasks[index] = this.content;
+        },
+        completeTask(index) {
+            this.completedTasks.push(this.tasks[index]);
+            this.removeTask(index);
         }
     },
     mounted: function() {

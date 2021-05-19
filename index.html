@@ -23,7 +23,10 @@
                 <ul>
                     <li v-for="(task, index) in tasks">
                         <span class="taskText" contenteditable="true" :id="index" :html="content" @input="updateTask($event, index)" >{{task}}</span>
-                        <i class="fas fa-times-circle" @click="removeTask(index)"></i>
+                        <div class="icons">
+                            <i class="fas fa-check" @click="completeTask(index)"></i>
+                            <i class="fas fa-trash" @click="removeTask(index)"></i>
+                        </div>
                     </li>
                     <li v-if="(tasks.length === 0) ? noTask = 'display:block' : noTask = 'display: none'">
                         <span v-bind:style="noTask">No task</span>
