@@ -15,23 +15,38 @@
 <body>
     <div id="app">
         <div class="taskHandler">
+            <img src="https://www.boolean.careers/images/misc/logo.png" alt="Boolean logo" width="250" height="60">
             <div class="addTask">
                 <input type="text" v-model="inputTask">
                 <button @click="addTask">Add Task</button>
             </div>
-            <div class="tasksList">
-                <ul>
-                    <li v-for="(task, index) in tasks">
-                        <span class="taskText" contenteditable="true" :id="index" :html="content" @input="updateTask($event, index)" >{{task}}</span>
-                        <div class="icons">
-                            <i class="fas fa-check" @click="completeTask(index)"></i>
-                            <i class="fas fa-trash" @click="removeTask(index)"></i>
-                        </div>
-                    </li>
-                    <li v-if="(tasks.length === 0) ? noTask = 'display:block' : noTask = 'display: none'">
-                        <span v-bind:style="noTask">No task</span>
-                    </li>
-                </ul>
+            <div class="tasksUi">
+                <div class="tasksList">
+                    <h3>ToDo</h3>
+                    <ul>
+                        <li v-for="(task, index) in tasks">
+                            <span class="taskText" contenteditable="true" :id="index" :html="content" @input="updateTask($event, index)" >{{task}}</span>
+                            <div class="icons">
+                                <i class="fas fa-check" @click="completeTask(index)"></i>
+                                <i class="fas fa-trash" @click="removeTask(index)"></i>
+                            </div>
+                        </li>
+                        <li v-if="(tasks.length === 0) ? noTask = 'display:block' : noTask = 'display: none'">
+                            <span v-bind:style="noTask">No task</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tasksCompleted" :style="noCompleted" v-if="(completedTasks.length === 0) ? noCompleted = 'display:none' : noCompleted = 'display: block'">
+                    <h3>Completed</h3>
+                    <ul>
+                        <li v-for="(task, index) in completedTasks">
+                            <span :id="index" :html="content">{{task}}</span>
+                            <div class="icons">
+                                <i class="fas fa-reply" @click="undoTask(index)"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

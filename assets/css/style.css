@@ -14,11 +14,26 @@
     flex-direction: column;
 }
 
-.tasksList ul li { 
+.taskHandler > img { margin: 10px; }
+
+.tasksUi { 
+    display: flex;
+}
+
+.tasksList, .tasksCompleted {
+    background: #c7daea;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.tasksList ul li,
+.tasksCompleted ul li { 
     list-style: none; 
     display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
 
-.tasksList span { font-size: 25px; }
+.tasksList span,
+.tasksCompleted span { font-size: 20px; }

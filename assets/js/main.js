@@ -10,6 +10,7 @@ const app = new Vue ({
         completedTasks: [],
         inputTask: '',
         noTask: '',
+        noCompleted: '',
         content: ''
     },
     methods: {
@@ -27,6 +28,10 @@ const app = new Vue ({
         completeTask(index) {
             this.completedTasks.push(this.tasks[index]);
             this.removeTask(index);
+        },
+        undoTask(index) {
+            this.tasks.push(this.completedTasks[index]);
+            this.completedTasks.splice(index, 1);
         }
     },
     mounted: function() {
