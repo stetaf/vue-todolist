@@ -14,4 +14,11 @@
     flex-direction: column;
 }
 
-.tasksList ul li { list-style: none; }
+.tasksList ul li { 
+    list-style: none; 
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.tasksList span { font-size: 25px; }
