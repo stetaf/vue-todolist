@@ -1,0 +1,41 @@
+/* Func */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Page */
+.taskHandler { 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.taskHandler > img { margin: 10px; }
+
+.tasksUi { 
+    display: flex;
+}
+
+.tasksList, .tasksCompleted, .tasksTrashed {
+    background: #c7daea;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.tasksList ul li,
+.tasksCompleted ul li,
+.tasksTrashed ul li { 
+    list-style: none; 
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.tasksList span,
+.tasksCompleted span,
+.tasksTrashed span { font-size: 20px; }

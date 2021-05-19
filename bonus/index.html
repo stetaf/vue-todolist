@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue ToDo</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />    
+    <!-- VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="taskHandler">
+            <img src="https://www.boolean.careers/images/misc/logo.png" alt="Boolean logo" width="250" height="60">
+            <div class="addTask">
+                <input type="text" v-model="inputTask">
+                <button @click="addTask">Add Task</button>
+            </div>
+            <div class="tasksUi">
+                <div class="tasksList">
+                    <h3>ToDo</h3>
+                    <ul>
+                        <li v-for="(task, index) in tasks">
+                            <span class="taskText" contenteditable="true" :id="index" :html="content" @input="updateTask($event, index)" >{{task}}</span>
+                            <div class="icons">
+                                <i class="fas fa-check" @click="completeTask(index)"></i>
+                                <i class="fas fa-trash" @click="removeTask(index)"></i>
+                            </div>
+                        </li>
+                        <li v-if="(tasks.length === 0) ? noTask = 'display:block' : noTask = 'display: none'">
+                            <span v-bind:style="noTask">No task</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tasksCompleted" :style="noCompleted" v-if="(completedTasks.length === 0) ? noCompleted = 'display:none' : noCompleted = 'display: block'">
+                    <h3>Completed</h3>
+                    <ul>
+                        <li v-for="(task, index) in completedTasks">
+                            <span :id="index" :html="content">{{task}}</span>
+                            <div class="icons">
+                                <i class="fas fa-reply" @click="undoTask(index)"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tasksTrashed" :style="noTrashed" v-if="(trashedTasks.length === 0) ? noTrashed = 'display:none' : noTrashed = 'display: block'">
+                    <h3>Trashed</h3>
+                    <ul>
+                        <li v-for="(task, index) in trashedTasks">
+                            <span :id="index" :html="content">{{task}}</span>
+                            <div class="icons">
+                                <i class="fas fa-trash-restore-alt" @click="restoreTask(index)"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- APP -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
