@@ -41,6 +41,9 @@ const app = new Vue ({
         restoreTask(index) {
             this.tasks.push(this.trashedTasks[index]);
             this.trashedTasks.splice(index, 1);
+        },
+        emptyTrash() {
+            if (confirm("Are you sure you want to clear the trash list ?")) this.trashedTasks = [];
         }
     },
     mounted: function() {

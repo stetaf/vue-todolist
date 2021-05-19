@@ -48,7 +48,10 @@
                     </ul>
                 </div>
                 <div class="tasksTrashed" :style="noTrashed" v-if="(trashedTasks.length === 0) ? noTrashed = 'display:none' : noTrashed = 'display: block'">
-                    <h3>Trashed</h3>
+                    <div>
+                        <h3>Trashed</h3>
+                        <i class="fas fa-times" style="margin-right: 1px;" @click="emptyTrash()"></i>
+                    </div>
                     <ul>
                         <li v-for="(task, index) in trashedTasks">
                             <span :id="index" :html="content">{{task}}</span>
