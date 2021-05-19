@@ -25,6 +25,9 @@
                         <span>{{ task }}</span>
                         <i class="fas fa-times-circle" @click="removeTask(index)"></i>
                     </li>
+                    <li v-if="(tasks.length === 0) ? noTask = 'display:block' : noTask = 'display: none'">
+                        <span v-bind:style="noTask">No task</span>
+                    </li>
                 </ul>
             </div>
         </div>

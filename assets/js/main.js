@@ -2,8 +2,13 @@
 const app = new Vue ({
     el: '#app',
     data:  {
-        tasks: [],
+        tasks: [
+            'Learn HTML',
+            'Learn JS',
+            'Learn VUE'
+        ],
         inputTask: '',
+        noTask: ''
     },
     methods: {
         addTask() {
