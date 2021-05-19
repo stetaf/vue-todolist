@@ -22,8 +22,8 @@
             <div class="tasksList">
                 <ul>
                     <li v-for="(task, index) in tasks">
-                        <span>{{task}}</span>
-                        <i class="fas fa-times-circle"></i>
+                        <span>{{ task }}</span>
+                        <i class="fas fa-times-circle" @click="removeTask(index)"></i>
                     </li>
                 </ul>
             </div>
