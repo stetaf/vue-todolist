@@ -20,7 +20,7 @@ const app = new Vue ({
                 this.tasks.push(this.inputTask);
                 this.inputTask = '';
             } else {
-                this.errorTask = 'border: 2px solid red';
+                this.errorTask = 'border: 2px solid red; outline: red;';
             }
         },
         removeTask(index) {
