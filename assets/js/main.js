@@ -37,6 +37,9 @@ const app = new Vue ({
         }
     },
     mounted: function() {
-
+        let el = document.querySelector('.addTask > input');
+        el.addEventListener("keydown", (event) => {
+            if (event.key == "Enter") this.addTask();
+        });
     }
 });
