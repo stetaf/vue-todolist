@@ -1,0 +1,17 @@
+/* Func */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Page */
+.taskHandler { 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tasksList ul li { list-style: none; }
