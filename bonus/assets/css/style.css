@@ -6,12 +6,25 @@
 }
 
 /* Page */
+body { background-color: aliceblue; }
+
 .taskHandler { 
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.addTask input,
+.addTask button {
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #7cb2e2;
+}
+
+.addTask button {
+    background: #7cb2e2;
 }
 
 .taskHandler > img { margin: 10px; }
@@ -21,10 +34,12 @@
 }
 
 .tasksList, .tasksCompleted, .tasksTrashed {
+    width: 200px;
     background: #c7daea;
     padding: 15px;
     border-radius: 10px;
-    margin: 10px;
+    margin: 20px 10px;
+    box-shadow: 1px 1px 5px 1px #7cb2e2;
 }
 
 .tasksList ul li,
@@ -39,3 +54,9 @@
 .tasksList span,
 .tasksCompleted span,
 .tasksTrashed span { font-size: 20px; }
+
+.tasksTrashed > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
