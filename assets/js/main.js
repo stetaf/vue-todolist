@@ -15,8 +15,10 @@ const app = new Vue ({
     },
     methods: {
         addTask() {
-            this.tasks.push(this.inputTask);
-            this.inputTask = '';
+            if ((this.inputTask.length > 5) && (this.inputTask.match(/^\s+$/) === null)) {
+                this.tasks.push(this.inputTask);
+                this.inputTask = '';
+            }
         },
         removeTask(index) {
             this.tasks.splice(index, 1);
