@@ -10,6 +10,7 @@ const app = new Vue ({
         completedTasks: [],
         trashedTasks: [],
         inputTask: '',
+        errorTask: '',
         noTask: '',
         noCompleted: '',
         noTrashed: '',
@@ -20,6 +21,9 @@ const app = new Vue ({
             if ((this.inputTask.length > 5) && (this.inputTask.match(/^\s+$/) === null)) {
                 this.tasks.push(this.inputTask);
                 this.inputTask = '';
+                this.errorTask = '';
+            } else {
+                this.errorTask = 'border: 2px solid red';
             }
         },
         removeTask(index) {

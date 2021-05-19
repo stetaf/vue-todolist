@@ -17,7 +17,7 @@
         <div class="taskHandler">
             <img src="https://www.boolean.careers/images/misc/logo.png" alt="Boolean logo" width="250" height="60">
             <div class="addTask">
-                <input type="text" v-model="inputTask">
+                <input type="text" v-model="inputTask" :style="errorTask">
                 <button @click="addTask">Add Task</button>
             </div>
             <div class="tasksUi">
